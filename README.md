@@ -1,2 +1,6 @@
-# 2D-Physics-Simulator
-a simple 2D physics simulator made using pygame library.
+This is a basic 2D physics simulator made with python using the library PyGame.
+# How to play :
+fork the project and run this command 
+```
+python -u main.py
+```
