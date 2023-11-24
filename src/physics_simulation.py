@@ -4,15 +4,12 @@ import random
 from objects import spawn_random_ball, spawn_physics_square
 from rendering import render_text, render_velocity_text
 from collision import handle_ball_wall_collision, handle_ball_ball_collision, handle_square_wall_collision, handle_square_ball_collision
-from fluid import Fluid
-
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BROWNISH = (139, 69, 19)
 
 def simulate_gravity(screen, clock, screen_width, screen_height):
     balls = []
-    fluid = Fluid()
     print("Simulation Started.")
     user_ball_radius = 20
     user_ball_color = WHITE
@@ -68,9 +65,6 @@ def simulate_gravity(screen, clock, screen_width, screen_height):
                         time_scale = 0.5
                     else:
                         time_scale = 1.0
-                elif event.key == pygame.K_l: 
-                    mouse_x, mouse_y = pygame.mouse.get_pos()
-                    fluid.spawn_particle(mouse_x, mouse_y)
                 elif event.key == pygame.K_a:
                     for ball in balls:
                         render_velocity_text(screen, int(ball['x']), int(ball['y']), ball['speed_x'], ball['speed_y'])
@@ -97,9 +91,6 @@ def simulate_gravity(screen, clock, screen_width, screen_height):
                     square_dragging = False
 
         pygame.display.set_caption(f"Physics Sandbox - FPS : {int(clock.get_fps())}")
-        fluid.update_particles()
-        fluid.handle_particle_wall_collision(screen_width, screen_height)
-        fluid.draw_particles(screen)
 
         if not paused:
             user_ball_speed_y += gravity * time_scale
