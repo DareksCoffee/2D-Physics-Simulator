@@ -1,9 +1,9 @@
 This is a basic 2D physics simulator made with python using the library PyGame.
 # Requirements :
 
-pygame 2.5.2 
-SDL 2.28.3
-Python 3.11.5
+pygame 2.5.2\n
+SDL 2.28.3\n
+Python 3.11.5\n
 
 # How to play :
 Fork the project :
